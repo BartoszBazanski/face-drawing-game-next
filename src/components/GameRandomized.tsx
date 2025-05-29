@@ -57,7 +57,7 @@ export const GameRandomized = () => {
   };
 
   return (
-    <div className="size-full bg-gray-200 rounded-lg flex items-center justify-center">
+    <div className="w-full aspect-square bg-gray-200 rounded-lg flex items-center justify-center">
       {selectedOption || isProcessing ? (
         <div
           className={cn('text-9xl font-bold text-blue-600', {
