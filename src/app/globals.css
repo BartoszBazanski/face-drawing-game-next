@@ -5,3 +5,8 @@
     @apply mx-auto;
   }
 }
+
+html,
+body {
+  scroll-behavior: smooth;
+}
