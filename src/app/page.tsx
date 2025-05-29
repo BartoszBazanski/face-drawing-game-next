@@ -1,10 +1,6 @@
-import { Button } from '@headlessui/react';
-import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/solid';
-
 import { ResetButton } from '@/components/ResetButton';
 import { GameProvider } from '@/providers/game/GameProvider';
-import { cn } from '@/utils/cn';
-import GameNavigation from '@/components/GameNavigation';
+import { GameNavigation } from '@/components/GameNavigation';
 import { GameResults } from '@/components/GameResults';
 import { GameRandomized } from '@/components/GameRandomized';
 

@@ -6,7 +6,7 @@ import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/24/solid";
 import { cn } from "@/utils/cn";
 import { useGame } from "@/providers/game/GameProvider";
 
-const GameNavigation = () => {
+export const GameNavigation = () => {
   const { currentStepId, steps, setCurrentStepId } = useGame();
 
   return (
@@ -36,5 +36,3 @@ const GameNavigation = () => {
     </div>
   );
 };
-
-export default GameNavigation;
