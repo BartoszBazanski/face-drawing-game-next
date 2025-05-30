@@ -25,7 +25,7 @@ export const GameNavigation = () => {
         onClick={() =>
           setCurrentStepId((prev) => Math.min(prev + 1, steps.length - 1))
         }
-        disabled={currentStepId === steps.length - 1}
+        disabled={currentStepId === steps.length - 1 || !steps[currentStepId].selectedOption}
         className={cn(
           'flex items-center justify-center h-14 text-white bg-blue-500 cursor-pointer',
           'disabled:bg-gray-300 disabled:cursor-not-allowed disabled:opacity-80'
