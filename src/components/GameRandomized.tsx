@@ -5,22 +5,20 @@ import { useMemo, useState } from 'react';
 
 import { useGame } from '@/providers/game/GameProvider';
 import DiceIcon from '@/assets/dice.svg';
-import { GameStepOption } from '@/context/GameContext.types';
 import { generateRandomOptions } from '@/utils/generateRandomOptions';
+import { iconsMap } from '@/data/game/steps';
 import { cn } from '@/utils/cn';
 
 export const GameRandomized = () => {
   const { currentStepId, steps, setSteps, isProcessing, setIsProcessing } =
     useGame();
-  const [randomOption, setRandomOption] = useState<GameStepOption | null>(null);
-  const { selectedOption, options } = useMemo(
-    () => steps[currentStepId],
-    [steps, currentStepId]
-  );
+  const currentStepData = steps[currentStepId];
+  const { selectedOption, options, type, iconColorClassName } = currentStepData;
+  const [randomOption, setRandomOption] = useState<string | null>(null);
   const randomize = async () => {
     setIsProcessing(true);
 
-    const randomOptions = generateRandomOptions(options, 20);
+    const randomOptions = generateRandomOptions<typeof type>(options, 20);
     const getInterval = (index: number, total: number): number => {
       const progress = index / total;
       const eased = 1 - Math.pow(1 - progress, 3);
@@ -55,22 +53,36 @@ export const GameRandomized = () => {
 
     requestAnimationFrame(animate);
   };
+  const selectedOrRandomOption = useMemo(() => {
+    if (selectedOption !== null) {
+      return selectedOption;
+    }
+    if (randomOption !== null) {
+      return randomOption;
+    }
+    return null;
+  }, [selectedOption, randomOption]);
 
   return (
-    <div className="w-full aspect-square bg-gray-200 rounded-lg flex items-center justify-center">
-      {selectedOption || isProcessing ? (
-        <div
-          className={cn('text-9xl font-bold text-blue-600', {
-            'text-gray-500': isProcessing,
-            'text-blue-600': selectedOption
-          })}
-        >
-          {selectedOption || randomOption}
-        </div>
-      ) : (
+    <div className="relative w-full aspect-square bg-white rounded-lg flex items-center justify-center">
+      {options.map((option) => {
+        const OptionIcon = iconsMap[type][option] as React.FC<
+          React.SVGProps<SVGSVGElement>
+        >;
+
+        return (
+          <OptionIcon
+            key={option}
+            className={cn('absolute inset-0 -z-10 w-full', iconColorClassName, {
+              'z-10': selectedOrRandomOption === option
+            })}
+          />
+        );
+      })}
+      {!selectedOption && !isProcessing && (
         <Button
           onClick={randomize}
-          className="size-2/3 text-white bg-blue-500 rounded-lg flex items-center justify-center cursor-pointer"
+          className="absolute z-10 size-2/3 text-white bg-blue-500 rounded-lg flex items-center justify-center cursor-pointer top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
         >
           <DiceIcon className="size-1/3" />
         </Button>

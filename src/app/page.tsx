@@ -12,7 +12,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-[var(--container-md)_1fr] gap-10">
             <div className="flex justify-center items-start">
               <div className="w-full sm:max-w-md">
-                <div className="w-full aspect-square rounded-t-lg bg-white p-[10%]">
+                <div className="w-full aspect-square rounded-t-lg bg-gray-200 p-[10%]">
                   <GameRandomized />
                 </div>
                 <GameNavigation />

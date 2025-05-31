@@ -13,13 +13,17 @@ export const GameProvider = ({ children }: PropsWithChildren<unknown>) => {
     defaultValue.currentStepId
   );
   const reset = () => {
+    const defaultSteps = getDefaultGameSteps();
+
     window.scrollTo({ top: 0, behavior: 'smooth' });
     setIsCompleted(false);
-    setSteps(getDefaultGameSteps());
+    setSteps(defaultSteps);
     setCurrentStepId(0);
   };
   useEffect(() => {
-    setIsCompleted(steps.every((step) => !!step.selectedOption));
+    setIsCompleted(
+      steps.every((step) => step.selectedOption !== null)
+    );
   }, [steps, setIsCompleted]);
 
   const value = {

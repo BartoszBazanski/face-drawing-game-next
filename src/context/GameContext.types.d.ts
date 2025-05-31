@@ -1,11 +1,15 @@
+import { iconsMap } from "@/data/game/steps";
 import { Dispatch, SetStateAction } from "react";
 
-export type GameStepOption = number;
+export type IconType = keyof typeof iconsMap;
+export type IconKeys<T extends IconType> = keyof (typeof iconsMap)[T];
 
-export type GameStep = {
+export type GameStep<T extends IconType = IconType> = {
   id: number;
-  options: GameStepOption[];
-  selectedOption?: GameStepOption;
+  type: T;
+  iconColorClassName: string;
+  options: Array<IconKeys<T>>;
+  selectedOption: IconKeys<T> | null;
 };
 
 export type GameContextType = {

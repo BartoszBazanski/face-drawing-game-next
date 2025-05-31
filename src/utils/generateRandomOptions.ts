@@ -1,17 +1,17 @@
-import { GameStepOption } from "@/context/GameContext.types";
+import { IconType, IconKeys } from '@/context/GameContext.types';
 
-export const generateRandomOptions = (
-  options: GameStepOption[],
+export const generateRandomOptions = <T extends IconType>(
+  options: IconKeys<T>[],
   length: number
-): GameStepOption[] => {
+): IconKeys<T>[] => {
   if (options.length < 2) {
     return Array.from({ length }, () => options[0]);
   }
 
-  const randomOptions: GameStepOption[] = [];
+  const randomOptions: IconKeys<T>[] = [];
 
   for (let i = 0; i < length; i++) {
-    let randomOption: GameStepOption;
+    let randomOption: IconKeys<T>;
 
     do {
       randomOption = options[Math.floor(Math.random() * options.length)];
