@@ -6,6 +6,7 @@ import Face3 from "@/assets/faces/face-3.svg";
 import Face4 from "@/assets/faces/face-4.svg";
 import Face5 from "@/assets/faces/face-5.svg";
 import Face6 from "@/assets/faces/face-6.svg";
+import Face7 from "@/assets/faces/face-7.svg";
 
 import Eyes1 from "@/assets/eyes/eyes-1.svg";
 import Eyes2 from "@/assets/eyes/eyes-2.svg";
@@ -20,6 +21,7 @@ import Nose3 from "@/assets/noses/nose-3.svg";
 import Nose4 from "@/assets/noses/nose-4.svg";
 import Nose5 from "@/assets/noses/nose-5.svg";
 import Nose6 from "@/assets/noses/nose-6.svg";
+import Nose7 from "@/assets/noses/nose-7.svg";
 
 import Mouth1 from "@/assets/mouths/mouth-1.svg";
 import Mouth2 from "@/assets/mouths/mouth-2.svg";
@@ -34,6 +36,7 @@ import Hairstyle3 from "@/assets/hairstyles/hairstyle-3.svg";
 import Hairstyle4 from "@/assets/hairstyles/hairstyle-4.svg";
 import Hairstyle5 from "@/assets/hairstyles/hairstyle-5.svg";
 import Hairstyle6 from "@/assets/hairstyles/hairstyle-6.svg";
+import Hairstyle7 from "@/assets/hairstyles/hairstyle-7.svg";
 
 export const iconsMap = {
   face: {
@@ -42,7 +45,8 @@ export const iconsMap = {
     face3: Face3,
     face4: Face4,
     face5: Face5,
-    face6: Face6
+    face6: Face6,
+    face7: Face7
   },
   eyes: {
     eyes1: Eyes1,
@@ -58,7 +62,8 @@ export const iconsMap = {
     nose3: Nose3,
     nose4: Nose4,
     nose5: Nose5,
-    nose6: Nose6
+    nose6: Nose6,
+    nose7: Nose7,
   },
   mouth: {
     mouth1: Mouth1,
@@ -74,7 +79,8 @@ export const iconsMap = {
     hairstyle3: Hairstyle3,
     hairstyle4: Hairstyle4,
     hairstyle5: Hairstyle5,
-    hairstyle6: Hairstyle6
+    hairstyle6: Hairstyle6,
+    hairstyle7: Hairstyle7,
   }
 } as const;
 

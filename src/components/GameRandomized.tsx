@@ -15,7 +15,7 @@ export const GameRandomized = () => {
   const currentStepData = steps[currentStepId];
   const { selectedOption, options, type, iconColorClassName } = currentStepData;
   const [randomOption, setRandomOption] = useState<string | null>(null);
-  const randomize = async () => {
+  const randomize = () => {
     setIsProcessing(true);
 
     const randomOptions = generateRandomOptions<typeof type>(options, 20);
