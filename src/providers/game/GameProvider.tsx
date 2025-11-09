@@ -4,6 +4,7 @@ import { PropsWithChildren, useContext, useEffect, useState } from 'react';
 
 import { defaultValue, GameContext } from '@/context/GameContext';
 import { getDefaultGameSteps } from '@/data/game/steps';
+import { useWakeLock } from "@/hooks/useWakeLock";
 
 export const GameProvider = ({ children }: PropsWithChildren<unknown>) => {
   const [isCompleted, setIsCompleted] = useState(defaultValue.isCompleted);
@@ -12,6 +13,8 @@ export const GameProvider = ({ children }: PropsWithChildren<unknown>) => {
   const [currentStepId, setCurrentStepId] = useState(
     defaultValue.currentStepId
   );
+  useWakeLock();
+
   const reset = () => {
     const defaultSteps = getDefaultGameSteps();
 
